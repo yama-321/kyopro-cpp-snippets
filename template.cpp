@@ -1,3 +1,4 @@
+// 共通テンプレート
 #include <bits/stdc++.h>
 using namespace std;
 #include <atcoder/all>
