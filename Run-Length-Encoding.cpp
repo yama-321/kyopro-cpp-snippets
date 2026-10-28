@@ -1,5 +1,6 @@
 // ランレングス圧縮
 // auto 配列A = rle_build(配列B);により配列Bをランレングス圧縮した配列Aを宣言
+// [値, 個数]の配列が返されることに注意
 auto rle_build = [](const auto& a) {
   using T = decay_t<decltype(a[0])>;
   vector<pair<T, ll>> res;
