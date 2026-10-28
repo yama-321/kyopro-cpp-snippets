@@ -5,7 +5,6 @@ auto rle_build = [](const auto& a) {
   vector<pair<T, ll>> res;
   ll n = a.size();
   if (n == 0) return res;
-
   ll cnt = 1;
   rep(i, n) {
     if (i + 1 < n && a[i] == a[i + 1]) {
