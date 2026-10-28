@@ -1,4 +1,5 @@
 // 共通テンプレート
+// https://github.com/yama-321/kyopro-cpp-snippets
 #include <bits/stdc++.h>
 using namespace std;
 #include <atcoder/all>
