@@ -9,8 +9,8 @@ using ld = long double;
 using int128 = __int128_t;
 using mint998 = modint998244353;
 using mint107 = modint1000000007;
-const ll INF = 1e9;
-const ll LINF = 1e18;
+const ll INF = 1LL << 30;
+const ll LINF = 1LL << 60;
 #define rep1(i, n) for (ll i = 0; i < (ll)(n); ++i)
 #define rep2(i, a, b) for (ll i = (ll)(a); i < (ll)(b); ++i)
 #define GET_REP(_1, _2, _3, NAME, ...) NAME
@@ -19,6 +19,7 @@ const ll LINF = 1e18;
 #define rrep2(i, a, b) for (ll i = (ll)(b) - 1; i >= (ll)(a); --i)
 #define GET_RREP(_1, _2, _3, NAME, ...) NAME
 #define rrep(...) GET_RREP(__VA_ARGS__, rrep2, rrep1, 0, )(__VA_ARGS__)
+#define all(v) (v).begin(), (v).end()
 template<class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
 template<class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
 
