@@ -1,5 +1,5 @@
 // 拡張ユークリッドの互除法
-auto extgcd = [](this auto&& extgcd, ll a, ll b, ll& x, ll& y) -> ll {
+auto extgcd = [](self(extgcd), ll a, ll b, ll& x, ll& y) -> ll {
   if (b == 0) {
     x = 1;
     y = 0;
