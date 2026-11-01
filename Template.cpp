@@ -9,8 +9,7 @@ using namespace atcoder;
 using ll = long long;
 using ld = long double;
 using int128 = __int128_t;
-template <typename T>
-using vec = vector<T>;
+template <typename T> using vec = vector<T>;
 using mint998 = modint998244353;
 using mint107 = modint1000000007;
 // 定数
