@@ -9,9 +9,9 @@ using namespace atcoder;
 using ll = long long;
 using ld = long double;
 using int128 = __int128_t;
-template <typename T> using vec = vector<T>;
 using mint998 = modint998244353;
 using mint107 = modint1000000007;
+template <typename T> using vec = vector<T>;
 // 定数
 const ll INF = 1LL << 30;
 const ll LINF = 1LL << 60;
