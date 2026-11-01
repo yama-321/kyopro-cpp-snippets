@@ -1,8 +1,8 @@
 // 非負の重み付きグラフにおけるダイクストラ法
 // 最小ヒープの宣言から最短経路の算出まで
-priority_queue<pair<ll, ll>, vector<pair<ll, ll>>, greater<pair<ll, ll>>> pq;
+priority_queue<pair<ll, ll>, vec<pair<ll, ll>>, greater<pair<ll, ll>>> pq;
 pq.push({0, 0});  // スタート地点のpush、その都度変更
-vector<ll> cost(n, LINF);
+vec<ll> cost(n, LINF);
 cost[0] = 0;  // スタート地点のコスト、その都度変更
 while (!pq.empty()) {
   auto [c, u] = pq.top();
