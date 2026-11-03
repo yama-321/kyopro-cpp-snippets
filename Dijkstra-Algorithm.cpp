@@ -10,9 +10,6 @@ while (!pq.empty()) {
   if (c > cost[u]) continue;
   for (auto [w, to] : g[u]) {  // [重さ, 頂点]の順番になっていることに注意
     ll nc = c + w;
-    if (nc < cost[to]) {
-      cost[to] = nc;
-      pq.push({nc, to});
-    }
+    if (chmin(cost[to], nc)) pq.push({nc, to});
   }
 }
