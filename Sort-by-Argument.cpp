@@ -1,6 +1,6 @@
 // 偏角ソート
 // 1. 上半平面（+x軸含む）にあるか判定
-inline bool is_upper(ll x, ll y) {
+inline bool is_upper(ll& x, ll& y) {
     return y > 0 || (y == 0 && x >= 0);
 }
 
@@ -8,7 +8,7 @@ inline bool is_upper(ll x, ll y) {
 //   ・+x軸から反時計回り [0, 2π) の順
 //   ・原点 (0,0) は最後
 //   ・同偏角なら原点から近い順
-inline bool cmp_arg(pair<ll, ll> a, pair<ll, ll> b) {
+inline bool cmp_arg(pair<ll, ll>& a, pair<ll, ll>& b) {
     auto [ax, ay] = a;
     auto [bx, by] = b;
     bool a0 = (ax == 0 && ay == 0);
@@ -24,7 +24,7 @@ inline bool cmp_arg(pair<ll, ll> a, pair<ll, ll> b) {
     if (cr != 0) return cr > 0;
 
     // 同偏角なら原点からの距離昇順 (x^2 + y^2)
-    return (__int128)ax * ax + ay * ay < (__int128)bx * bx + by * by;
+    return (__int128)ax * ax + (__int128)ay * ay < (__int128)bx * bx + (__int128)by * by;
 }
 
 // 3. 配列の偏角ソート
