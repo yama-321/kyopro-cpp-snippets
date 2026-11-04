@@ -1,3 +1,8 @@
+// 外積 (a × b)
+inline __int128 cross(const pair<ll, ll>& a, const pair<ll, ll>& b) {
+    return (__int128)a.first * b.second - (__int128)a.second * b.first;
+}
+
 // 偏角ソート
 // 1. 上半平面（+x軸含む）にあるか判定
 inline bool is_upper(ll x, ll y) {
@@ -20,7 +25,7 @@ inline bool cmp_arg(const pair<ll, ll>& a, const pair<ll, ll>& b) {
     if (ha != hb) return ha > hb; // 上半平面(true)が先
 
     // 同じ半平面内なら外積で判定 (a x b > 0 なら a が反時計回りで先)
-    __int128 cr = (__int128)ax * by - (__int128)ay * bx;
+    __int128 cr = cross(a, b);
     if (cr != 0) return cr > 0;
 
     // 同偏角なら原点からの距離昇順 (x^2 + y^2)
@@ -45,8 +50,7 @@ inline bool arg_less(const pair<ll,ll>& a, const pair<ll,ll>& b) {
 
     if (ha != hb) return ha > hb;
 
-    __int128 cr = (__int128)a.first * b.second
-        - (__int128)a.second * b.first;
+    __int128 cr = cross(a, b);
 
     return cr > 0;
 }
