@@ -54,3 +54,8 @@ inline bool arg_less(const pair<ll,ll>& a, const pair<ll,ll>& b) {
 
     return cr > 0;
 }
+
+// 5. 2つの点が同偏角か判定
+inline bool is_same_arg(const pair<ll, ll>& a, const pair<ll, ll>& b) {
+  return !arg_less(a, b) && !arg_less(b, a);
+}
