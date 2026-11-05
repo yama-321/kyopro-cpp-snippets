@@ -128,29 +128,7 @@ class range_set {
     return false;
   }
 
-  // [l, r] の範囲が隙間なく完全に塗られているか判定
-  bool is_colored_full(ll l, ll r) const {
-    if (l > r) return true;
-
-    auto it = st.lower_bound({l, numeric_limits<ll>::min(), Color{}});
-    if (it == st.end()) {
-      if (it == st.begin()) return false;
-      --it;
-    } else if (it->l > l) {
-      if (it == st.begin()) return false;
-      --it;
-    }
-
-    ll current_l = l;
-    while (it != st.end() && current_l <= r) {
-      if (it->l > current_l || it->r < current_l) return false;
-      current_l = it->r + 1;
-      ++it;
-    }
-    return current_l > r;
-  }
-
-  // [l, r] の範囲が「単一の同じ色」で完全に塗られているか判定
+  // [l, r] の範囲が単一の同じ色で完全に塗られているか判定
   bool is_colored_same(ll l, ll r) const {
     if (l > r) return true;
 
@@ -178,7 +156,7 @@ class range_set {
 
 // 使い方
 
-// ・assigh(l, r, color)
+// ・assign(l, r, color)
 //   区間[l, r]を指定したcolorで塗りつぶす(既存の色は上書き)
 
 // ・erase(l, r)
@@ -186,13 +164,11 @@ class range_set {
 
 // ・get_color(x)
 //   座標xの現在の色を取得(無色の場合はstd::nullopt)
-//   ※返り値はイテレータ(返却値cが真なら色は*c、偽なら無色)
+//   ※返り値はoptionalオブジェクト
+//   (返却値cが真なら色取得は*c、偽なら無色)
 
 // ・is_colored_any(l, r)
 //   区間[l, r]に1箇所以上色が塗られているか判定
-
-// ・is_colored_full(l, r)
-//   区間[l, r]に完全に色が塗られているか判定(複数色でも可)
 
 // ・is_colored_same(l, r)
 //   区間[l, r]に完全に同じ色で塗られているか判定
