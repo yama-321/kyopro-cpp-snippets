@@ -36,6 +36,14 @@ template <class T = bool> inline void Yes(T b = true) { cout << (b ? "Yes\n" : "
 inline void No() { cout << "No\n"; }
 template <class T> inline bool chmin(T& a, T b) { if (a > b) { a = b; return true; } return false; }
 template <class T> inline bool chmax(T& a, T b) { if (a < b) { a = b; return true; } return false; }
+template <class H, class... T>
+void print(const H& h, const T&... t) {cout << h; ((cout << ' ' << t), ...); cout << '\n'; }
+inline void print() { cout << '\n'; }
+template<class... A> void print_sp(const A&... a) { ((cout << a << ' '), ...); }
+inline void print_sp() { cout << ' '; }
+template <class H, class... T>
+void print_nn(const H& h, const T&... t) {cout << h; ((cout << ' ' << t), ...); }
+template <class... A> void put(const A&... a) { (cout << ... << a); }
 // デバッグ用関数
 // ※コンテナはvector、pair、set、mapのみ対応
 #ifdef _GLIBCXX_DEBUG
