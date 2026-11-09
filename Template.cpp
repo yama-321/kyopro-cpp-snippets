@@ -82,7 +82,11 @@ template <class K, class V> std::ostream& operator<<(std::ostream& os, const std
 // clang-format on
 
 void solve(){
-  
+  // メイン処理
+
+
+
+  return;
 }
 
 int main() {
