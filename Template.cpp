@@ -81,12 +81,18 @@ template <class K, class V> std::ostream& operator<<(std::ostream& os, const std
 #endif
 // clang-format on
 
+void solve(){
+  
+}
+
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
   cout << fixed << setprecision(20);
   
-  
+  int t = 1;
+  // cin >> t;
+  while(t--) solve();
   
   return 0;
 }
