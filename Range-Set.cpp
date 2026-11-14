@@ -99,7 +99,7 @@ class range_set {
     update_length(c, r - l + 1);
   }
 
-  /// 指定した座標 x の色を取得する（無色の場合は std::nullopt を返す）
+  // 指定した座標 x の色を取得する（無色の場合は std::nullopt を返す）
   std::optional<Color> get_color(ll x) const {
     // x より後に始まる最初の区間を検索
     auto it = st.upper_bound({x, numeric_limits<ll>::max(), Color{}});
@@ -109,6 +109,20 @@ class range_set {
       --it;
       if (it->l <= x && x <= it->r) {
         return it->color;
+      }
+    }
+
+    return std::nullopt;  // 無色
+  }
+
+// 地点 x を含む、連続して同じ色が塗られている区間ノード {l, r, color} を返す（無色の場合は std::nullopt）
+  std::optional<Node> get_node(ll x) const {
+    auto it = st.upper_bound({x, numeric_limits<ll>::max(), Color{}});
+
+    if (it != st.begin()) {
+      --it;
+      if (it->l <= x && x <= it->r) {
+        return *it;
       }
     }
 
@@ -163,9 +177,14 @@ class range_set {
 //   区間[l, r]の色を削除
 
 // ・get_color(x)
-//   座標xの現在の色を取得(無色の場合はstd::nullopt)
+//   地点xの現在の色を取得(無色の場合はstd::nullopt)
 //   ※返り値はoptionalオブジェクト
-//   (返却値cが真なら色取得は*c、偽なら無色)
+//   (返却値cが真なら色取得は*c、偽なら地点xは無色)
+
+// ・get_node(x)
+//   地点xから連続して同じ色が塗られている区間ノード{l, r, color}を取得
+//   ※返り値はoptionalオブジェクト
+//   (返却値がnodeが真ならノード取得は*node、偽なら地点xは無色)
 
 // ・is_colored_any(l, r)
 //   区間[l, r]に1箇所以上色が塗られているか判定
